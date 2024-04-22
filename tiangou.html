@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>舔狗语录在线生成</title>
+<meta name="Keywords" content="舔狗语录,舔狗日记,文案生成" />
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fea455faf8a55b8c58928f6fe0af0800";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <style>
+        * {
+  padding: 0;
+  margin: 0;
+}
+.p1{
+font-size:25px;position:absolute;width:80%;left:10%;color:#ffffff;text-align:center;
+}
+.p2{
+font-size:25px;color:#ffffff;text-align:center;
+}
+a{text-decoration: none;}
+a:hover, a:focus {
+    color: #74777b;
+}
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("image/tiangou.jpg") no-repeat center center/cover;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container a {
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  color: #f4f4f4;
+  margin:20px;
+  text-transform: uppercase;
+}
+
+.btn {
+  text-decoration: none;
+  border: 1px solid rgb(146, 148, 248);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(146, 148, 248, 0.4),
+    transparent
+  );
+  transition: all 650ms;
+}
+
+.btn:hover:before {
+  left: 100%;
+}
+
+    </style>
+</head>
+<body>
+<script src="js/jquery.min.js"></script>
+
+<script type="text/javascript">
+//定义获取词语下标
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    //点击body时触发事件
+    $("body").click(function(e) {
+    //需要显示的词语
+    var a = new Array("ridesharing.top","(^_-)","程总");
+    //设置词语给span标签
+    var $i = $("<span/>").text(a[a_idx]);
+    //下标等于原来下标+1  余 词语总数
+    a_idx = (a_idx + 1)% a.length;
+    //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+    //获取x和y的指针坐标
+    var x = e.pageX, y = e.pageY;
+    //在鼠标的指针的位置给$i定义的span标签添加css样式
+    $i.css({"z-index" : 999999999999999999999999999999999999999999999999999999999999999999999,
+        "top" : y - 20,
+        "left" : x,
+        "position" : "absolute",
+        "font-weight" : "bold",
+        "color" : "#f3a4a4"
+        });
+    //在body添加这个标签
+    $("body").append($i);
+        //animate() 方法执行 CSS 属性集的自定义动画。
+        //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+        //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+        $i.animate({
+        //将原来的位置向上移动180
+            "top" : y - 180,
+                "opacity" : 0
+         //1500动画的速度
+        }, 1500, function() {
+        //时间到了自动删除
+            $i.remove();
+        });
+    });
+});
+</script>
+<p id="tiangou" style="top:10px;font-size:30px;position:absolute;width:80%;left:10%;color:#f3a4a4;text-align:center"></p>
+
+
+<div class="container">
+	<a href="#" class="btn"  id="btn">直接生成</a>
+    
+</div>
+<div style="margin-top:30px;top: 55%;
+    position: absolute;
+    width: 90%;
+    left: 5%;">
+<p  class="p1">接口一天调用次数只有100次，用完了就只能显示重复的哦！</p></div>
+<div style="text-align:center;width:90%;left:5%;bottom:10px;position:fixed;">
+    <a href="index.html" target="_blank" class="p2">程总个人主页</a>
+    <a href="pictures.html" target="_blank" class="p2">随机图片</a>
+</div>
+<script>
+var tiangou_list=['我不想再做舔狗了 好聚好散吧 以后你走你的独木桥 我在下面撑着桥呜呜呜 你过桥一定要小心啊。'
+    ,'我爸说再敢网恋就打断我的腿，幸好不是胳膊，这样我还能继续和你打字聊天，就算连胳膊也打断了，我的心里也会有你位置。'
+,'她吊着我怎么了 她爱我才吊着我 她怎么不吊着别人。'
+    ,'昨天在工地扛沙袋我一下子扛了三袋 工友们问我为什么这么能扛?我眼泪瞬间就下来了，是啊为什么我这么能扛就是扛不住想你。'
+    ,'今天我问你“你爱我吗”你跟我说了一句“我爱你妈”我不禁陷入了沉思原来你已经爱我到连我妈都思考在内了我们一定会长久的。',
+         '“下雨了，雨伞借给你” “那你呢?” “没关系，我摇花手回去”。',
+         '今天厂里发工资了，发了3000，你以为我会给你3000?不对，我只给你300，因为我同时舔了十个。','只要你回头，我就在。',
+         '只要我舔的够快，其他的狗就无从下手。','晚上：以后再也不主动找你了 第二天：早安。',
+         '今天我对他说我想问一下：爱奇艺会员你有吗?他没发现是“我爱你”的藏头诗 还叫我滚。',
+         '我给你发了99条消息 你终于肯回我了 你说“你发你妈 烦不烦” 我一下子就哭了，原来努力真的有用，你已经开始考虑见我的妈妈了，你也挺喜欢我的吧。',
+         '他从来不说想我 聊天记录搜索了一下“想你”两个字 全都是:“那波你怎么不上啊 你在想你妈呢”。',
+         '孩子生下来吧，我跟他姓。',
+         '看你在线，邀你吃鸡，秒被拒绝，再看你已经开了，我知道，你肯定是为了不连累我才不和我玩。',
+         '兄弟 你回一下她吧 她高兴了 就会回我了。',
+         '宝 每次跟你打王者 我总希望对面有人来偷水晶 你会说我们家被偷了 这时我就很开心 原来我可以跟你有个家。',
+         '宝 你今天怎么没有跟我说早啊 群发没有勾上我吗 明天一定要勾上我噢',
+         '今天他终于叫了我的名字 虽然叫错了，但是没关系 我马上就去改名',
+         '大哥，求你哄哄她吧，她心情好了，就愿意理我了',
+         '他朋友圈屏蔽我了，我陷入了沉思，大都是屏蔽家人，原来他把我当做她家人了，他好细节啊，我更爱他了',
+         '我一个月工资五千 你以为我会给你五千吗 我会再借二百发5200给你 太爱你了 宝',
+         '宝 你永远都不知道 我最爱你的时候哭得我荞麦枕头都发芽了',
+         '今天晚上有点冷，本来以为街上没有人，结果刚刚偷电瓶的时候被抓，本来想反抗，结果警察说了一句老实点别动，我立刻就放弃了抵抗，因为我记得你说过你喜欢老实人。',
+         '今天下雨了，你跟她出门的时候记得要带伞，多穿一点衣服，玫瑰花扎手，拿的时候，注意不要被扎到了，亲嘴的时候记得要看一下她的健康码呀！宝贝，呜呜呜'];
+         var clicktag = 1;
+            $('.btn').click(function () {
+            if (clicktag == 0) {
+                    alert('歇一下再来哦！');
+                    setTimeout(function () { clicktag = 1 }, 3000);
+                }
+               else{
+            myfunction();
+            clicktag = 0;
+               }
+    
+
+            });
+            function myfunction()
+			  {
+			  var ch=Math.round(Math.random()*1);
+			  if(ch==0){
+			  $.ajax({
+              cache: false,
+              dataType: 'json',
+              type: "GET",//重要参数1：请求的方式
+              url : "tiangou.php",//重要参数2：请求的文件名
+              //请求成功执行的function
+              success: function(msg){//重要参数3：msg是后台返回的数据，和js的reponsetext一样，如果后台没有返回数据则不会弹出。
+                    document.getElementById('tiangou').innerHTML=msg.newslist[0].content;
+              },
+               //请求成功失败执行的function
+              error:function(){
+                var i=Math.floor(Math.random()*25);
+        document.getElementById('tiangou').innerHTML=tiangou_list[i];
+              }
+            });
+			  }
+    else{
+    var i=Math.floor(Math.random()*25);
+        document.getElementById('tiangou').innerHTML=tiangou_list[i];
+    }
+
+			  }
+
+        </script>
+	<script>
+     window.onload=function(){
+        document.onkeydown=function(){
+            var e=window.event||arguments[0];
+            if(e.keyCode==123){
+                alert("请尊重劳动成果！");
+                return false;
+            }else if((e.ctrlKey)&&(e.shiftKey)&&(e.keyCode==73)){
+                alert("请尊重劳动成果！");
+                return false;
+            }else if((e.ctrlKey)&&(e.keyCode==85)){//追加
+
+　　　　　　　　return false;
+　　　　　　　}
+        };
+        document.oncontextmenu=function(){
+            alert("请尊重劳动成果！");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

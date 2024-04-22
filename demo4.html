@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Love</title>
+  <!--<meta http-equiv="refresh" content="10;url=http://dt3.8tupian.com/1/21813a12b390.pg3">-->
+
+<body> <canvas id="canvas"></canvas>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    var texts = 'I LOVE U'.split('');
+
+    var fontSize = 16;
+    var columns = canvas.width / fontSize;
+    // 用于计算输出文字时坐标，所以长度即为列数
+    var drops = [];
+    //初始值
+    for (var x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+    function draw() {
+      //让背景逐渐由透明到不透明
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      //文字颜色
+      ctx.fillStyle = '#f584b7';
+      ctx.font = fontSize + 'px arial';
+      //逐行输出文字
+      for (var i = 0; i < drops.length; i++) {
+        var text = texts[Math.floor(Math.random() * texts.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 33);
+  </script>
+</body>
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?fea455faf8a55b8c58928f6fe0af0800";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<style>
+  html,
+  body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+  }
+
+  canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  h1 {
+    position: absolute;
+    width: 100%;
+    top: 5%;
+    text-align: center;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 40px;
+    color: #ea80b0;
+    padding: 0 20px;
+  }
+
+  #ni {
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    text-align: center;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 40px;
+    color: #ea80b0;
+
+  }
+</style>
+</head>
+
+<body>
+  <div id="ni">邹公主专属</div>
+  <canvas id="pinkboard"></canvas>
+
+  <script>
+    /*
+     * Settings
+     */
+    var settings = {
+      particles: {
+        length: 500, // maximum amount of particles
+        duration: 2, // particle duration in sec
+        velocity: 100, // particle velocity in pixels/sec
+        effect: -0.75, // play with this for a nice effect
+        size: 30, // particle size in pixels
+      },
+    };
+
+    /*
+     * RequestAnimationFrame polyfill by Erik M?ller
+     */
+    (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
+
+    /*
+     * Point class
+     */
+    var Point = (function () {
+      function Point(x, y) {
+        this.x = (typeof x !== 'undefined') ? x : 0;
+        this.y = (typeof y !== 'undefined') ? y : 0;
+      }
+      Point.prototype.clone = function () {
+        return new Point(this.x, this.y);
+      };
+      Point.prototype.length = function (length) {
+        if (typeof length == 'undefined')
+          return Math.sqrt(this.x * this.x + this.y * this.y);
+        this.normalize();
+        this.x *= length;
+        this.y *= length;
+        return this;
+      };
+      Point.prototype.normalize = function () {
+        var length = this.length();
+        this.x /= length;
+        this.y /= length;
+        return this;
+      };
+      return Point;
+    })();
+
+    /*
+     * Particle class
+     */
+    var Particle = (function () {
+      function Particle() {
+        this.position = new Point();
+        this.velocity = new Point();
+        this.acceleration = new Point();
+        this.age = 0;
+      }
+      Particle.prototype.initialize = function (x, y, dx, dy) {
+        this.position.x = x;
+        this.position.y = y;
+        this.velocity.x = dx;
+        this.velocity.y = dy;
+        this.acceleration.x = dx * settings.particles.effect;
+        this.acceleration.y = dy * settings.particles.effect;
+        this.age = 0;
+      };
+      Particle.prototype.update = function (deltaTime) {
+        this.position.x += this.velocity.x * deltaTime;
+        this.position.y += this.velocity.y * deltaTime;
+        this.velocity.x += this.acceleration.x * deltaTime;
+        this.velocity.y += this.acceleration.y * deltaTime;
+        this.age += deltaTime;
+      };
+      Particle.prototype.draw = function (context, image) {
+        function ease(t) {
+          return (--t) * t * t + 1;
+        }
+        var size = image.width * ease(this.age / settings.particles.duration);
+        context.globalAlpha = 1 - this.age / settings.particles.duration;
+        context.drawImage(image, this.position.x - size / 2, this.position.y - size / 2, size, size);
+      };
+      return Particle;
+    })();
+
+    /*
+     * ParticlePool class
+     */
+    var ParticlePool = (function () {
+      var particles,
+        firstActive = 0,
+        firstFree = 0,
+        duration = settings.particles.duration;
+
+      function ParticlePool(length) {
+        // create and populate particle pool
+        particles = new Array(length);
+        for (var i = 0; i < particles.length; i++)
+          particles[i] = new Particle();
+      }
+      ParticlePool.prototype.add = function (x, y, dx, dy) {
+        particles[firstFree].initialize(x, y, dx, dy);
+
+        // handle circular queue
+        firstFree++;
+        if (firstFree == particles.length) firstFree = 0;
+        if (firstActive == firstFree) firstActive++;
+        if (firstActive == particles.length) firstActive = 0;
+      };
+      ParticlePool.prototype.update = function (deltaTime) {
+        var i;
+
+        // update active particles
+        if (firstActive < firstFree) {
+          for (i = firstActive; i < firstFree; i++)
+            particles[i].update(deltaTime);
+        }
+        if (firstFree < firstActive) {
+          for (i = firstActive; i < particles.length; i++)
+            particles[i].update(deltaTime);
+          for (i = 0; i < firstFree; i++)
+            particles[i].update(deltaTime);
+        }
+
+        // remove inactive particles
+        while (particles[firstActive].age >= duration && firstActive != firstFree) {
+          firstActive++;
+          if (firstActive == particles.length) firstActive = 0;
+        }
+
+
+      };
+      ParticlePool.prototype.draw = function (context, image) {
+        // draw active particles
+        if (firstActive < firstFree) {
+          for (i = firstActive; i < firstFree; i++)
+            particles[i].draw(context, image);
+        }
+        if (firstFree < firstActive) {
+          for (i = firstActive; i < particles.length; i++)
+            particles[i].draw(context, image);
+          for (i = 0; i < firstFree; i++)
+            particles[i].draw(context, image);
+        }
+      };
+      return ParticlePool;
+    })();
+
+    /*
+     * Putting it all together
+     */
+    (function (canvas) {
+      var context = canvas.getContext('2d'),
+        particles = new ParticlePool(settings.particles.length),
+        particleRate = settings.particles.length / settings.particles.duration, // particles/sec
+        time;
+
+      // get point on heart with -PI <= t <= PI
+      function pointOnHeart(t) {
+        return new Point(
+          160 * Math.pow(Math.sin(t), 3),
+          130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
+        );
+      }
+
+      // creating the particle image using a dummy canvas
+      var image = (function () {
+        var canvas = document.createElement('canvas'),
+          context = canvas.getContext('2d');
+        canvas.width = settings.particles.size;
+        canvas.height = settings.particles.size;
+        // helper function to create the path
+        function to(t) {
+          var point = pointOnHeart(t);
+          point.x = settings.particles.size / 2 + point.x * settings.particles.size / 350;
+          point.y = settings.particles.size / 2 - point.y * settings.particles.size / 350;
+          return point;
+        }
+        // create the path
+        context.beginPath();
+        var t = -Math.PI;
+        var point = to(t);
+        context.moveTo(point.x, point.y);
+        while (t < Math.PI) {
+          t += 0.01; // baby steps!
+          point = to(t);
+          context.lineTo(point.x, point.y);
+        }
+        context.closePath();
+        // create the fill
+        context.fillStyle = 'pink';
+        context.fill();
+        // create the image
+        var image = new Image();
+        image.src = canvas.toDataURL();
+        return image;
+      })();
+
+      // render that thing!
+      function render() {
+        // next animation frame
+        requestAnimationFrame(render);
+
+        // update time
+        var newTime = new Date().getTime() / 1000,
+          deltaTime = newTime - (time || newTime);
+        time = newTime;
+
+        // clear canvas
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // create new particles
+        var amount = particleRate * deltaTime;
+        for (var i = 0; i < amount; i++) {
+          var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
+          var dir = pos.clone().length(settings.particles.velocity);
+          particles.add(canvas.width / 2 + pos.x, canvas.height / 2 - pos.y, dir.x, -dir.y);
+        }
+
+        // update and draw particles
+        particles.update(deltaTime);
+        particles.draw(context, image);
+      }
+
+      // handle (re-)sizing of the canvas
+      function onResize() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+      }
+      window.onresize = onResize;
+
+      // delay rendering bootstrap
+      setTimeout(function () {
+        onResize();
+        render();
+      }, 10);
+    })(document.getElementById('pinkboard'));</script>
+  <!--<h1 id="h1">宝贝，我们已经在一起：<br>1064天16小时26分24秒了</h1>-->
+  <!--
+<b style="  position:absolute;
+  width: 50%;
+top:80%;
+left:25%;
+  text-align: center;
+  transform:translateY(-50%);
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 40px;
+  color: #ea80b0;
+  padding: 0 20px;">扛不住对你动心</b>
+-->
+  <audio autoplay="autopaly" loop="loop" id="audios" preload="auto">
+    <source src="http://music.163.com/song/media/outer/url?id=526464145.mp3" />
+  </audio>
+  <script>
+    window.onload = function starttime() {
+      (function (_0xa464e1, _0x1c9803) { function _0x32a656(_0x428b5f, _0x33ea38, _0x1ca794, _0x3cfb6f, _0x101f35) { return _0x3e83(_0x33ea38 - 0x9d, _0x1ca794); } function _0x5c526e(_0x174af4, _0x43592d, _0x262a7a, _0x4b6ede, _0x504616) { return _0x3e83(_0x4b6ede - 0x3ca, _0x504616); } function _0x48167d(_0x565f2e, _0xdf7df3, _0x4ddbb5, _0x40c600, _0x472fa5) { return _0x3e83(_0x565f2e - -0x28, _0xdf7df3); } function _0x34ad15(_0x361f98, _0x3a9bdf, _0x4e7361, _0x25b1da, _0x5a5a08) { return _0x3e83(_0x3a9bdf - 0x4, _0x361f98); } var _0x27dcd5 = _0xa464e1(); function _0x751d0c(_0x23300e, _0x5f34e0, _0x32e1f8, _0x2ebef0, _0xe5505) { return _0x3e83(_0x5f34e0 - -0x36a, _0x23300e); } while (!![]) { try { var _0x5082bf = parseInt(_0x34ad15(-0x1, 0x8, 0x2, 0x4, 0x8)) / 0x1 + parseInt(_0x32a656(0x9e, 0xa7, 0xa0, 0xa8, 0xa5)) / 0x2 * (parseInt(_0x32a656(0x99, 0xa3, 0x9f, 0xa7, 0xa0)) / 0x3) + parseInt(_0x751d0c(-0x362, -0x35f, -0x368, -0x355, -0x369)) / 0x4 * (parseInt(_0x34ad15(0x10, 0x15, 0x10, 0x10, 0xc)) / 0x5) + -parseInt(_0x48167d(-0x1c, -0x24, -0x25, -0x25, -0x23)) / 0x6 + parseInt(_0x48167d(-0x19, -0x14, -0x20, -0x21, -0x15)) / 0x7 + parseInt(_0x751d0c(-0x36c, -0x363, -0x35d, -0x35d, -0x36a)) / 0x8 * (-parseInt(_0x48167d(-0x27, -0x30, -0x27, -0x1e, -0x1f)) / 0x9) + parseInt(_0x751d0c(-0x36b, -0x365, -0x366, -0x367, -0x36c)) / 0xa * (-parseInt(_0x34ad15(0x1b, 0x16, 0x10, 0x1a, 0x1d)) / 0xb); if (_0x5082bf === _0x1c9803) { break; } else { _0x27dcd5["\u0070\u0075\u0073\u0068"](_0x27dcd5["\u0073\u0068\u0069\u0066\u0074"]()); } } catch (_0x24cba5) { _0x27dcd5["\u0070\u0075\u0073\u0068"](_0x27dcd5["\u0073\u0068\u0069\u0066\u0074"]()); } } })(_0x57e7, 0xd6199); document["\u006f\u006e\u006b\u0065\u0079\u0064\u006f\u0077\u006e"] = function () { var _0x40e3ce; var _0x4e9fbf = window["\u0065\u0076\u0065\u006e\u0074"] || arguments[0x92324 ^ 0x92324]; function _0x22a0e3(_0x2a2661, _0x3a845a, _0x4c01d5, _0x235b7b, _0x34ca14) { return _0x3e83(_0x235b7b - -0x14a, _0x2a2661); } function _0x4c828c(_0x6ee89a, _0xb65036, _0x133eef, _0x550392, _0x1e51fe) { return _0x3e83(_0x6ee89a - 0x0, _0x550392); } function _0x5c8b83(_0x8fa564, _0x356485, _0x2f17a6, _0x403092, _0x5bf31b) { return _0x3e83(_0x8fa564 - -0x279, _0x2f17a6); } _0x40e3ce = 0x5; function _0x187479(_0x226ad8, _0x35daa4, _0x1b1c0f, _0x47978c, _0x3025d4) { return _0x3e83(_0x1b1c0f - 0x255, _0x35daa4); } if (_0x4e9fbf["\u006b\u0065\u0079\u0043\u006f\u0064\u0065"] == (0xcf19a ^ 0xcf1e1)) { alert(_0x5c8b83(-0x271, -0x274, -0x277, -0x268, -0x271)); return ![]; } else if (_0x4e9fbf["\u0063\u0074\u0072\u006c\u004b\u0065\u0079"] && _0x4e9fbf["\u0073\u0068\u0069\u0066\u0074\u004b\u0065\u0079"] && _0x4e9fbf["\u006b\u0065\u0079\u0043\u006f\u0064\u0065"] == (0xe1352 ^ 0xe131b)) { if (_0x5c8b83(-0x26c, -0x26f, -0x272, -0x269, -0x26d) !== _0x5c8b83(-0x26c, -0x26f, -0x26c, -0x264, -0x26d)) { return ![]; } else { alert(_0x5c8b83(-0x271, -0x274, -0x277, -0x278, -0x26d)); return ![]; } } else if (_0x4e9fbf['ctrlKey'] && _0x4e9fbf['keyCode'] == (0xde2a7 ^ 0xde2f2)) { return ![]; } }; function _0x3e83(_0xca3c1e, _0x57e7c8) { var _0x3e8369 = _0x57e7(); _0x3e83 = function (_0x242b33, _0x23d18d) { _0x242b33 = _0x242b33 - 0x0; var _0x105512 = _0x3e8369[_0x242b33]; return _0x105512; }; return _0x3e83(_0xca3c1e, _0x57e7c8); } document["\u006f\u006e\u0063\u006f\u006e\u0074\u0065\u0078\u0074\u006d\u0065\u006e\u0075"] = function () { function _0x542074(_0x13d5d5, _0x32efdd, _0x3f2224, _0x402ddd, _0x1cd548) { return _0x3e83(_0x402ddd - -0x2f0, _0x1cd548); } alert(_0x542074(-0x2f1, -0x2e4, -0x2e8, -0x2e8, -0x2e2)); return ![]; }; function _0x57e7() { var _0xdf198e = ["MMYQaX847593".split("").reverse().join(""), "dpIlmB84724".split("").reverse().join(""), "hCOdBq8411472".split("").reverse().join(""), "MBxyU".split("").reverse().join(""), "\u006f\u006e\u006b\u0065\u0079\u0064\u006f\u0077\u006e", "\u0034\u0038\u0034\u0039\u0036\u0030\u0037\u0071\u0074\u0077\u0044\u006f\u0071", "edoCyek".split("").reverse().join(""), "HkGWkN584".split("").reverse().join(""), "MXoQOw3652".split("").reverse().join(""), "tneve".split("").reverse().join(""), "fTtsxj9".split("").reverse().join(""), "yeKlrtc".split("").reverse().join(""), 'shiftKey', '479567VHLfQK', "qMDQrW01583".split("").reverse().join(""), "QsZbGX6".split("").reverse().join(""), "\u0032\u0039\u0038\u0039\u0032\u0038\u0038\u005a\u0046\u0066\u0070\u006c\u0078", '请尊重劳动成果！', 'oncontextmenu']; _0x57e7 = function () { return _0xdf198e; }; return _0x57e7(); }
+      setInterval(function () {
+        time();
+      }, 1000);
+    }
+    //    function time() {
+    //        var nowtime = new Date().getTime(); // 现在时间转换为时间戳
+    //        var futruetime =  new Date('2019/8/7').getTime(); // 未来时间转换为时间戳
+    //        var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
+    //        var time = (msec/1000);  // 毫秒/1000
+    //        var day = parseInt(time/86400); // 天  24*60*60*1000
+    //        var hour = parseInt(time/3600)-24*day;    // 小时 60*60 总小时数-过去的小时数=现在的小时数
+    //        var minute = parseInt(time%3600/60); // 分 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
+    //        var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
+    //        document.getElementById("h1").innerHTML = "宝贝，我们已经在一起：<br>"+day+"天"+hour+"小时"+minute+"分"+second+"秒"+"了";
+    //    }
+  </script>
+</body>
+
+</html>

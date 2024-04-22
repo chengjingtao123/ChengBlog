@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	padding: 0px;
+	margin: 0px;
+	background: url("../image/u=3809453004,50666135&fm=253&fmt=auto&app=120&f=JPEG.webp");
+}
+h3{
+	color: aliceblue;
+}
+.div1{
+	
+	height: 100%;
+	width: 100%;
+	box-shadow: blue 5px 5px 30px 2px;
+}
+p{
+	color: azure;
+}
